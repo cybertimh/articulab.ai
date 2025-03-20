@@ -1,129 +1,2527 @@
-<!DOCTYPE html>
+        /* Footer Styles */
+        .footer {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        
+        .footer-top {
+            padding: 5rem 0 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr) 1.5fr;
+            gap: 3rem;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .footer-logo .dot {
+            color: var(--accent);
+        }
+        
+        .footer-logo p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links ul li a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-links ul li a:hover::before {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.2);
+        }
+        
+        .footer-newsletter h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-newsletter h4::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -8px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .newsletter-form {
+            position: relative;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 1rem 4rem 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .newsletter-form input:focus {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .newsletter-form button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            width: 45px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            transform: scale(1.1);
+        }
+        
+        .footer-bottom {
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--accent);
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 1200px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-logo {
+                grid-column: 1 / -1;
+            }
+            
+            .tech-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-tabs {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .tech-tab {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .tech-tab-icon {
+                margin: 0 auto 1rem;
+            }
+            
+            .tech-panel {
+                position: relative;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .quality-content, .cta-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .quality-right {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .tech-tabs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tech-panel {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-visual {
+                min-height: 250px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .footer-legal {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .navigation {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 1rem 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .navigation.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .navigation ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navigation ul li {
+                margin: 1rem 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+                width: 30px;
+                height: 24px;
+                position: relative;
+                cursor: pointer;
+            }
+            
+            .mobile-toggle span {
+                display: block;
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                background: white;
+                border-radius: 3px;
+                opacity: 1;
+                transform: rotate(0deg);
+                transition: .3s ease;
+            }
+            
+            .mobile-toggle span:nth-child(1) {
+                top: 0;
+            }
+            
+            .mobile-toggle span:nth-child(2) {
+                top: 10px;
+            }
+            
+            .mobile-toggle span:nth-child(3) {
+                top: 20px;
+            }
+            
+            .mobile-toggle.active span:nth-child(1) {
+                top: 10px;
+                transform: rotate(135deg);
+            }
+            
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-toggle.active span:nth-child(3) {
+                top: 10px;
+                transform: rotate(-135deg);
+            }
+        }
+        
+        /* Animation Classes */
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(0) translateX(20px);
+            }
+            75% {
+                transform: translateY(20px) translateX(10px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+                    /* Technologies Section Styles */
+        .technologies {
+            padding: 8rem 0;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+        
+        .tech-intro h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-intro p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .tech-showcase {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .tech-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .tech-tab {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .tech-tab::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--gradient-accent);
+            border-radius: 4px 0 0 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tech-tab.active {
+            background: linear-gradient(90deg, rgba(0, 210, 255, 0.05) 0%, white 100%);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .tech-tab.active::before {
+            opacity: 1;
+        }
+        
+        .tech-tab-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: var(--gradient-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+        }
+        
+        .tech-tab h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .tech-content {
+            position: relative;
+            min-height: 450px;
+        }
+        
+        .tech-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .tech-panel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .tech-visual {
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+        }
+        
+        .tech-visual::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            top: -100px;
+            right: -100px;
+        }
+        
+        .tech-animation {
+            width: 100%;
+            height: 250px;
+            position: relative;
+        }
+        
+        .tech-info {
+            padding: 3rem;
+        }
+        
+        .tech-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .tech-info h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .tech-info p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .tech-benefits {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .tech-benefits li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tech-benefits li i {
+            color: var(--accent);
+            margin-right: 0.8rem;
+            min-width: 20px;
+        }
+        
+        /* Animation Elements */
+        .nodes-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        .node1 {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+        
+        .node2 {
+            top: 60%;
+            left: 70%;
+            animation-delay: 0.5s;
+        }
+        
+        .node3 {
+            top: 30%;
+            left: 60%;
+            animation-delay: 1s;
+        }
+        
+        .connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(0,210,255,0.6) 50%, rgba(255,255,255,0.2) 100%);
+            transform-origin: left center;
+            animation: flash 3s infinite;
+        }
+        
+        .conn1 {
+            top: 25%;
+            left: 23%;
+            width: 40%;
+            transform: rotate(30deg);
+            animation-delay: 0.2s;
+        }
+        
+        .conn2 {
+            top: 40%;
+            left: 63%;
+            width: 20%;
+            transform: rotate(-45deg);
+            animation-delay: 0.7s;
+        }
+        
+        .conn3 {
+            top: 40%;
+            left: 23%;
+            width: 50%;
+            transform: rotate(-20deg);
+            animation-delay: 1.2s;
+        }
+        
+        .waveform {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .wave {
+            width: 8px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            animation: wave 1.5s infinite ease-in-out;
+        }
+        
+        .wave:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .wave:nth-child(2) {
+            animation-delay: 0.2s;
+            height: 140px;
+        }
+        
+        .wave:nth-child(3) {
+            animation-delay: 0.4s;
+            height: 160px;
+        }
+        
+        .wave:nth-child(4) {
+            animation-delay: 0.6s;
+            height: 180px;
+        }
+        
+        .wave:nth-child(5) {
+            animation-delay: 0.8s;
+            height: 140px;
+        }
+        
+        .resolution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 15px;
+            width: 80%;
+            height: 80%;
+            margin: 0 auto;
+        }
+        
+        .grid-cell {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: enhance 5s infinite;
+        }
+        
+        .grid-cell::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            animation: shine 5s infinite;
+        }
+        
+        .grid-cell:nth-child(1)::before {
+            animation-delay: 0s;
+        }
+        
+        .grid-cell:nth-child(2)::before {
+            animation-delay: 1s;
+        }
+        
+        .grid-cell:nth-child(3)::before {
+            animation-delay: 2s;
+        }
+        
+        .grid-cell:nth-child(4)::before {
+            animation-delay: 3s;
+        }
+        
+        .voice-bars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 100%;
+        }
+        
+        .voice-bar {
+            width: 8px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            animation: voice 1s infinite ease-in-out;
+        }
+        
+        .voice-bar:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .voice-bar:nth-child(2) {
+            animation-delay: 0.1s;
+            height: 60px;
+        }
+        
+        .voice-bar:nth-child(3) {
+            animation-delay: 0.2s;
+            height: 100px;
+        }
+        
+        .voice-bar:nth-child(4) {
+            animation-delay: 0.3s;
+            height: 80px;
+        }
+        
+        .voice-bar:nth-child(5) {
+            animation-delay: 0.4s;
+            height: 120px;
+        }
+        
+        .voice-bar:nth-child(6) {
+            animation-delay: 0.5s;
+            height: 70px;
+        }
+        
+        .voice-bar:nth-child(7) {
+            animation-delay: 0.6s;
+            height: 50px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+            }
+            100% {
+                transform: scale(1.2);
+                box-shadow: 0 0 30px rgba(0, 210, 255, 0.8);
+            }
+        }
+        
+        @keyframes flash {
+            0% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes wave {
+            0% {
+                height: 30px;
+            }
+            50% {
+                height: 100%;
+            }
+            100% {
+                height: 30px;
+            }
+        }
+        
+        @keyframes enhance {
+            0% {
+                filter: blur(2px);
+            }
+            50% {
+                filter: blur(0);
+            }
+            100% {
+                filter: blur(2px);
+            }
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        @keyframes voice {
+            0% {
+                height: 10%;
+            }
+            50% {
+                height: 100%;
+            }
+            100% {
+                height: 10%;
+            }
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articulab.ai - Precision AI Media Enhancement</title>
+    <title>Articulab.ai - Precision-Engineered AI Media Enhancement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Modern Color Scheme and Base Styles */
+        :root {
+            --primary: #0a192f;
+            --primary-dark: #050d1a;
+            --secondary: #0071e3;
+            --accent: #00d2ff;
+            --light: #f8fafc;
+            --dark: #1c2434;
+            --text: #333;
+            --text-light: #777;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            --card-gradient: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f9fc;
+            color: var(--text);
+            background-color: var(--light);
         }
-        header {
-            background-color: #2c3e50;
+        
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
             color: white;
-            padding: 2rem 0;
+            padding: 10rem 0 8rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,256L48,256C96,256,192,256,288,240C384,224,480,192,576,192C672,192,768,224,864,224C960,224,1056,192,1152,176C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom center no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,210,255,0.2) 0%, rgba(10,25,47,0) 70%);
+            z-index: 0;
+        }
+        
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 15s infinite linear;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1 .dot {
+            color: var(--accent);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .trusted-by {
+            margin-top: 4rem;
+        }
+        
+        .trusted-by p {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-bottom: 1rem;
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+        
+        .client-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            padding: 0 1rem;
+        }
+        
+        .client-logo:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Navigation Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .navigation ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .navigation ul li {
+            margin-left: 2.5rem;
+        }
+        
+        .navigation ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navigation ul li a:not(.nav-btn)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .navigation ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: var(--gradient-accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
+        }
+        
+        .mobile-toggle {
+            display: none;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline::before {
+            background: var(--accent);
+        }
+        
+        .hero-buttons {
+            margin-bottom: 3rem;
+        }
+        
+        /* Container */
         .container {
             width: 85%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 0;
         }
-        h1 {
-            font-size: 2.5rem;
+        
+        /* Feature Cards */
+        .features {
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,210,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+        }
+        
+        .features-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .features-intro h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .features-intro h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .features-intro p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(10, 25, 47, 0.03) 0%, rgba(0, 210, 255, 0.05) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: white;
+            font-size: 2rem;
+            background: var(--gradient-accent);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .feature-card:hover .feature-icon::after {
+            opacity: 1;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .feature-card h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+        
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-link:hover {
+            color: var(--accent);
+        }
+        
+        .feature-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Quality Section */
+        .quality {
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .quality-visual-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="rgba(10,25,47,1)"/><path d="M0 25L50 0L100 25L100 75L50 100L0 75Z" fill="rgba(0,113,227,0.05)"/></svg>');
+            opacity: 0.8;
+            z-index: 0;
+        }
+        
+        .quality-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .quality h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .quality h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .quality-left p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .quality-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 1.5rem;
+        }
+        
+        .quality-feature {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .quality-feature-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: rgba(0, 210, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--accent);
+        }
+        
+        .quality-feature-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: white;
+        }
+        
+        .quality-feature-text p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .quality-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .quality-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        
+        .stat-circle {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+        }
+        
+        .stat-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .stat-number span {
+            font-size: 1rem;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-quote i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .testimonial-quote p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-info h5 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: white;
+        }
+        
+        .author-info span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Technology Section */
+        .technologies {
+            padding: 5rem 0;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .tech-icon {
+            background: var(--gradient);
+            min-width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .tech-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        h2 {
-            color: #2c3e50;
-            margin-top: 2rem;
-        }
-        .tagline {
-            font-size: 1.2rem;
-            color: #ecf0f1;
-        }
-        .feature {
-            background-color: white;
-            border-radius: 5px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
+        
+        /* CTA Section */
         .cta {
-            background-color: #3498db;
+            padding: 8rem 0;
+            position: relative;
+            background: var(--primary);
             color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
+            overflow: hidden;
         }
-        footer {
-            background-color: #2c3e50;
+        
+        .cta-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="rgba(10,25,47,1)"/><circle cx="80" cy="20" r="50" fill="rgba(0,113,227,0.1)"/><circle cx="20" cy="80" r="40" fill="rgba(0,210,255,0.1)"/></svg>');
+            opacity: 0.8;
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .cta h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-benefits {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-benefits li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cta-benefits li i {
+            color: var(--accent);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .cta-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
             color: white;
             text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
         }
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto;
+        
+        .form-group {
+            margin-bottom: 1.5rem;
         }
-        input, textarea {
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: inherit;
+            transition: all 0.3s ease;
         }
-        textarea {
-            min-height: 150px;
+        
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group input::placeholder, 
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--gradient-accent);
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            padding: 1.2rem;
+        }
+        
+        .direct-contact {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .direct-contact p {
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-email i {
+            margin-right: 0.5rem;
+        }
+        
+        .contact-email:hover {
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h4::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .quality-metrics {
+                flex-direction: column;
+            }
+            
+            .metric {
+                margin: 0.5rem 0;
+            }
+            
+            .tech-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .tech-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Header/Navigation -->
+    <header class="header">
         <div class="container">
-            <h1>Articulab.ai</h1>
-            <p class="tagline">Precision-Engineered AI Media Enhancement</p>
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="#"><span>Articulab</span>.ai</a>
+                </div>
+                <nav class="navigation">
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#technologies">Technology</a></li>
+                        <li><a href="#quality">Quality</a></li>
+                        <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="container">
-        <div class="feature">
-            <h2>Quality-First Approach</h2>
-            <p>Founded by a Six Sigma certified Quality Assurance professional, Articulab applies rigorous quality standards to media transformation, delivering industry-leading accuracy and natural results.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Articulab<span class="dot">.</span>ai</h1>
+            <p class="hero-subtitle">Precision-Engineered AI Media Enhancement</p>
+            <p class="hero-description">Transform your content with industry-leading dubbing, video enhancement, and voice synthesis.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Get Started</a>
+                <a href="#technologies" class="btn btn-outline">Explore Technology</a>
+            </div>
+            <div class="trusted-by">
+                <p>Trusted by leading production companies</p>
+                <div class="client-logos">
+                    <div class="client-logo">Media Co.</div>
+                    <div class="client-logo">Studio Pro</div>
+                    <div class="client-logo">GlobalEdu</div>
+                </div>
+            </div>
         </div>
-
-        <div class="feature">
-            <h2>Our Technologies</h2>
-            <ul>
-                <li><strong>AI Migrasome System</strong> - Knowledge exchange between models for superior results</li>
-                <li><strong>Phoneme-Level Lip Synchronization</strong> - Precise dubbing that maintains perfect sync</li>
-                <li><strong>Advanced Video Enhancement</strong> - Professional-grade denoising and upscaling</li>
-                <li><strong>Voice Synthesis</strong> - Natural voice generation with emotional preservation</li>
-            </ul>
-        </div>
-
-        <div class="feature">
-            <h2>Who We Serve</h2>
-            <p>Articulab is designed for content creators, production companies, educational institutions, and corporate training departments seeking to transform their media across languages while maintaining exceptional quality.</p>
-        </div>
-
-        <div class="feature contact-form">
-            <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="How can we help you?" required></textarea>
-                <button type="submit" class="cta">Send Message</button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
-            <p>&copy; 2025 Articulab.ai - Coming Soon</p>
-            <p>Email: info@articulab.ai</p>
+            <div class="features-intro">
+                <span class="tag">Our Approach</span>
+                <h2>Why Leading Companies Choose Articulab</h2>
+                <p>We combine Six Sigma quality standards with cutting-edge AI to deliver exceptional media transformation results that surpass industry expectations.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Six Sigma Quality</h3>
+                    <p>Founded by a Six Sigma certified QA professional, we implement rigorous quality control throughout the media enhancement process, ensuring industry-leading results.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Measurable Results</h3>
+                    <p>We quantify enhancement quality with objective metrics, providing transparent and measurable improvements that demonstrate clear ROI for your media investments.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Advanced AI Infrastructure</h3>
+                    <p>Our proprietary AI models leverage the latest advancements in machine learning, neural networks, and specialized media processing algorithms.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Enterprise-Grade Security</h3>
+                    <p>Your media assets are protected with industry-leading security protocols, ensuring complete confidentiality throughout the enhancement process.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Rapid Processing</h3>
+                    <p>High-performance computing infrastructure processes your media with exceptional speed without compromising on the quality of results.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Support</h3>
+                    <p>Our team of media enhancement specialists provides personalized guidance and support throughout your project lifecycle.</p>
+                    <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quality Section -->
+    <section class="quality" id="quality">
+        <div class="quality-visual-background"></div>
+        <div class="container">
+            <div class="quality-content">
+                <div class="quality-left">
+                    <span class="tag">Six Sigma Methodology</span>
+                    <h2>Quality-First Approach</h2>
+                    <p>Founded by a Six Sigma certified Quality Assurance professional, Articulab applies rigorous quality standards to media transformation, delivering industry-leading accuracy and natural results.</p>
+                    
+                    <div class="quality-features">
+                        <div class="quality-feature">
+                            <div class="quality-feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="quality-feature-text">
+                                <h4>Measurable Quality Metrics</h4>
+                                <p>Objective assessment with quantifiable results</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-feature">
+                            <div class="quality-feature-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="quality-feature-text">
+                                <h4>Continuous Improvement</h4>
+                                <p>Systematic refinement of AI models and processes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-feature">
+                            <div class="quality-feature-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="quality-feature-text">
+                                <h4>Rigorous Testing</h4>
+                                <p>Comprehensive validation across media conditions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-feature">
+                            <div class="quality-feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="quality-feature-text">
+                                <h4>Defect Prevention</h4>
+                                <p>Proactive identification and elimination of issues</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quality-right">
+                    <div class="quality-card">
+                        <div class="quality-stats">
+                            <div class="stats-item">
+                                <div class="stat-circle">
+                                    <svg viewBox="0 0 36 36">
+                                        <path class="circle-bg"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#444"
+                                            stroke-width="1"
+                                            stroke-dasharray="100, 100"
+                                        />
+                                        <path class="circle"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#00d2ff"
+                                            stroke-width="3"
+                                            stroke-dasharray="99, 100"
+                                        />
+                                    </svg>
+                                    <div class="stat-number">99<span>%</span></div>
+                                </div>
+                                <p>Accuracy Rate</p>
+                            </div>
+                            
+                            <div class="stats-item">
+                                <div class="stat-circle">
+                                    <svg viewBox="0 0 36 36">
+                                        <path class="circle-bg"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#444"
+                                            stroke-width="1"
+                                            stroke-dasharray="100, 100"
+                                        />
+                                        <path class="circle"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#00d2ff"
+                                            stroke-width="3"
+                                            stroke-dasharray="92, 100"
+                                        />
+                                    </svg>
+                                    <div class="stat-number">92<span>%</span></div>
+                                </div>
+                                <p>Client Retention</p>
+                            </div>
+                            
+                            <div class="stats-item">
+                                <div class="stat-circle">
+                                    <svg viewBox="0 0 36 36">
+                                        <path class="circle-bg"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#444"
+                                            stroke-width="1"
+                                            stroke-dasharray="100, 100"
+                                        />
+                                        <path class="circle"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#00d2ff"
+                                            stroke-width="3"
+                                            stroke-dasharray="95, 100"
+                                        />
+                                    </svg>
+                                    <div class="stat-number">95<span>%</span></div>
+                                </div>
+                                <p>Quality Score</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Articulab's quality-first approach transformed our media localization process. The precision of their AI technology is unmatched in the industry.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h5>Sarah Johnson</h5>
+                                        <span>Director of Content, MediaCorp</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technologies Section -->
+    <section class="technologies" id="technologies">
+        <div class="container">
+            <div class="tech-intro">
+                <span class="tag">Proprietary Technology</span>
+                <h2>Our Advanced Technologies</h2>
+                <p>Leveraging cutting-edge AI systems for superior media enhancement results that maintain the authenticity and emotional impact of the original content.</p>
+            </div>
+            
+            <div class="tech-showcase">
+                <div class="tech-tabs">
+                    <div class="tech-tab active" data-tab="migrasome">
+                        <div class="tech-tab-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>AI Migrasome System</h3>
+                    </div>
+                    
+                    <div class="tech-tab" data-tab="phoneme">
+                        <div class="tech-tab-icon">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                        <h3>Phoneme-Level Sync</h3>
+                    </div>
+                    
+                    <div class="tech-tab" data-tab="video">
+                        <div class="tech-tab-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>Video Enhancement</h3>
+                    </div>
+                    
+                    <div class="tech-tab" data-tab="voice">
+                        <div class="tech-tab-icon">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <h3>Voice Synthesis</h3>
+                    </div>
+                </div>
+                
+                <div class="tech-content">
+                    <div class="tech-panel active" id="migrasome">
+                        <div class="tech-visual">
+                            <div class="tech-animation">
+                                <div class="nodes-container">
+                                    <!-- AI Node Animation Visual -->
+                                    <div class="node node1"></div>
+                                    <div class="node node2"></div>
+                                    <div class="node node3"></div>
+                                    <div class="connection conn1"></div>
+                                    <div class="connection conn2"></div>
+                                    <div class="connection conn3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-info">
+                            <h3>AI Migrasome System</h3>
+                            <p>Our proprietary knowledge exchange framework enables AI models to share information, creating a synergistic effect that produces superior results beyond what any single model could achieve.</p>
+                            <ul class="tech-benefits">
+                                <li><i class="fas fa-check"></i> Cross-model knowledge transfer</li>
+                                <li><i class="fas fa-check"></i> Adaptive learning capabilities</li>
+                                <li><i class="fas fa-check"></i> Enhanced pattern recognition</li>
+                                <li><i class="fas fa-check"></i> Contextual understanding preservation</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-panel" id="phoneme">
+                        <div class="tech-visual">
+                            <div class="tech-animation">
+                                <div class="waveform">
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-info">
+                            <h3>Phoneme-Level Lip Synchronization</h3>
+                            <p>Our precision dubbing technology aligns speech at the phoneme level, maintaining perfect synchronization between audio and video for the most natural viewing experience across languages.</p>
+                            <ul class="tech-benefits">
+                                <li><i class="fas fa-check"></i> Frame-perfect mouth movement alignment</li>
+                                <li><i class="fas fa-check"></i> Cross-language phonetic mapping</li>
+                                <li><i class="fas fa-check"></i> Cultural expression preservation</li>
+                                <li><i class="fas fa-check"></i> Emotion-aligned visual cues</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-panel" id="video">
+                        <div class="tech-visual">
+                            <div class="tech-animation">
+                                <div class="resolution-grid">
+                                    <div class="grid-cell"></div>
+                                    <div class="grid-cell"></div>
+                                    <div class="grid-cell"></div>
+                                    <div class="grid-cell"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-info">
+                            <h3>Advanced Video Enhancement</h3>
+                            <p>Professional-grade denoising and upscaling technologies restore and improve video quality, bringing new life to all types of media content while preserving the original aesthetic.</p>
+                            <ul class="tech-benefits">
+                                <li><i class="fas fa-check"></i> AI-powered detail recovery</li>
+                                <li><i class="fas fa-check"></i> Smart noise reduction algorithms</li>
+                                <li><i class="fas fa-check"></i> 4K+ resolution upscaling</li>
+                                <li><i class="fas fa-check"></i> Color grading optimization</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-panel" id="voice">
+                        <div class="tech-visual">
+                            <div class="tech-animation">
+                                <div class="voice-bars">
+                                    <div class="voice-bar"></div>
+                                    <div class="voice-bar"></div>
+                                    <div class="voice-bar"></div>
+                                    <div class="voice-bar"></div>
+                                    <div class="voice-bar"></div>
+                                    <div class="voice-bar"></div>
+                                    <div class="voice-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-info">
+                            <h3>Voice Synthesis with Emotional Preservation</h3>
+                            <p>Our emotional preservation technology creates natural voice generation that maintains the subtle emotional nuances of the original performance across multiple languages.</p>
+                            <ul class="tech-benefits">
+                                <li><i class="fas fa-check"></i> Authentic emotional tone mapping</li>
+                                <li><i class="fas fa-check"></i> Natural speech rhythm and cadence</li>
+                                <li><i class="fas fa-check"></i> Culturally adaptive expression</li>
+                                <li><i class="fas fa-check"></i> Contextual emphasis preservation</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-blur"></div>
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <span class="tag">Contact Us</span>
+                    <h2>Ready to Transform Your Media?</h2>
+                    <p>Experience the difference that precision-engineered AI media enhancement can make for your content. Our team is ready to discuss your specific requirements.</p>
+                    <ul class="cta-benefits">
+                        <li><i class="fas fa-check-circle"></i> Personalized solutions for your content</li>
+                        <li><i class="fas fa-check-circle"></i> Transparent pricing and process</li>
+                        <li><i class="fas fa-check-circle"></i> Rapid turnaround times</li>
+                        <li><i class="fas fa-check-circle"></i> Industry-leading quality results</li>
+                    </ul>
+                </div>
+                
+                <div class="cta-form">
+                    <form action="#" method="POST" id="contact-form">
+                        <h3>Get in Touch</h3>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your company">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Send Message</button>
+                    </form>
+                    <div class="direct-contact">
+                        <p>Or contact us directly:</p>
+                        <a href="mailto:info@articulab.ai" class="contact-email">
+                            <i class="fas fa-envelope"></i> info@articulab.ai
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Articulab<span class="dot">.</span>ai</h3>
+                        <p>Precision-engineered AI media enhancement platform specializing in quality-focused dubbing, video enhancement, and voice synthesis.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Precision Dubbing</a></li>
+                            <li><a href="#">Video Enhancement</a></li>
+                            <li><a href="#">Voice Synthesis</a></li>
+                            <li><a href="#">Custom Solutions</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Case Studies</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h4>Stay Updated</h4>
+                        <p>Subscribe to our newsletter for the latest updates and insights.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Articulab.ai - All Rights Reserved</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- JavaScript for Animations and Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navigation = document.querySelector('.navigation ul');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navigation.classList.toggle('active');
+                });
+            }
+            
+            // Technology Tabs
+            const techTabs = document.querySelectorAll('.tech-tab');
+            const techPanels = document.querySelectorAll('.tech-panel');
+            
+            techTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and panels
+                    techTabs.forEach(t => t.classList.remove('active'));
+                    techPanels.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding panel
+                    const panelId = this.getAttribute('data-tab');
+                    document.getElementById(panelId).classList.add('active');
+                });
+            });
+            
+            // Scroll Animation
+            const elements = document.querySelectorAll('.feature-card, .tech-tab, .quality-feature, .tech-panel, .section-title, .cta-form, .cta-text');
+            
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9
+                );
+            }
+            
+            function scanForVisibleElements() {
+                elements.forEach(element => {
+                    if (isInViewport(element) && !element.classList.contains('animate')) {
+                        element.classList.add('animate');
+                    }
+                });
+            }
+            
+            // Initial check
+            scanForVisibleElements();
+            
+            // Check on scroll
+            window.addEventListener('scroll', scanForVisibleElements);
+            
+            // Particle animation for hero section
+            function createParticles() {
+                const container = document.getElementById('particles');
+                if (!container) return;
+                
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 10 + 2;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    particle.style.top = `${Math.random() * 100}%`;
+                    particle.style.left = `${Math.random() * 100}%`;
+                    
+                    const duration = Math.random() * 20 + 10;
+                    particle.style.animation = `float ${duration}s infinite linear`;
+                    particle.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    container.appendChild(particle);
+                }
+            }
+            
+            createParticles();
+            
+            // Form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Form submission functionality will be implemented when the site goes live. Your message would be sent to our team.');
+                });
+            }
+            
+            // Make first tech tab active by default
+            if (techTabs.length > 0 && techPanels.length > 0) {
+                techTabs[0].classList.add('active');
+                techPanels[0].classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>

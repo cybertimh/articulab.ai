@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Articulab.ai - Precision-Engineered Media Enhancement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-dark: #00b8a9;
+            --text-light: #ccd6f6;
+            --text-white: #e6f1ff;
+            --dark: #0a192f;
+            --success: #00ca4e;
+            --warning: #ffcb1f;
+            --danger: #ff5470;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            background: rgba(10, 25, 47, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(8px);
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .logo span {
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .logo:hover span::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+        
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li:hover::before {
+            width: 100%;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.2);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--text-white);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            color: var(--primary);
+        }
+        
+        .page-header {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .header-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 40px 40px;
+            background-image: linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            z-index: 1;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+        
+        .page-subtitle {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .page-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+        
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            position: relative;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-heading {
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-heading h2 {
+            font-size: 42px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .section-heading p {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 800px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(100, 255, 218, 0.2), transparent);
+            z-index: 1;
+        }
+        
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        
+        .about-content h3 {
+            font-size: 32px;
+            color: var(--text-white);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-content h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .about-content p {
+            margin-bottom: 25px;
+            color: var(--text-light);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .mission-section {
+            background-color: var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(100, 255, 218, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mission-card {
+            background-color: var(--primary);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 36px;
+        }
+        
+        .mission-card h3 {
+            font-size: 24px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .mission-card h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .mission-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .team-section {
+            background-color: var(--primary);
+            position: relative;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .team-image {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-content {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .team-name {
+            font-size: 24px;
+            color: var(--text-white);
+            margin-bottom: 5px;
+        }
+        
+        .team-position {
+            color: var(--accent);
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .team-bio {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .values-section {
+            background-color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .values-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 70%, rgba(100, 255, 218, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .value-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .value-icon {
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            font-size: 22px;
+            color: var(--text-white);
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .cta-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 40px 40px;
+            background-image: linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            z-index: 1;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+        
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--text-light);
+        }
+        
+        .cta .btn {
+            background-color: var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .cta .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--text-light);
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            color: var(--text-white);
+            margin-bottom: 30px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 16px;
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .footer-column ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-column ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Animation Classes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animated {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+        
+        .fadeIn { animation-name: fadeIn; }
+        .scaleIn { animation-name: scaleIn; }
+        .slideInRight { animation-name: slideInRight; }
+        .slideInLeft { animation-name: slideInLeft; }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .page-header h1 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .section-heading h2 {
+                font-size: 36px;
+            }
+            
+            .about-content h3 {
+                font-size: 28px;
+            }
+            
+            .about-content p {
+                font-size: 16px;
+            }
+            
+            .value-card, .mission-card, .team-card {
+                padding: 30px 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .page-header {
+                padding-top: 120px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-heading h2 {
+                font-size: 30px;
+            }
+            
+            .section-heading p {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 30px;
+            }
+            
+            .mission-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .value-card, .mission-card, .team-card {
+                padding: 25px 20px;
+            }
+            
+            .cta h2 {
+                font-size: 32px;
+            }
+            
+            .cta p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Articul<span>ab</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-bg">
+            <div class="header-grid"></div>
+        </div>
+        <div class="container page-header-content">
+            <span class="page-subtitle animated fadeIn">About Us</span>
+            <h1 class="animated fadeIn delay-1">Quality-Driven Media<br>Enhancement Experts</h1>
+            <p class="animated fadeIn delay-2">Founded by a Six Sigma certified Quality Assurance professional, Articulab applies rigorous quality standards to media transformation, delivering industry-leading accuracy and natural results.</p>
+        </div>
+    </section>
+
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image animated fadeIn">
+                    <img src="/api/placeholder/600/400" alt="About Articulab">
+                </div>
+                <div class="about-content animated fadeIn delay-2">
+                    <h3>Our Story</h3>
+                    <p>Articulab was founded with a singular vision: to bring the precision and rigor of Six Sigma quality methodology to the world of media enhancement. Our founder, a certified Quality Assurance professional with extensive experience in both media production and technical implementation, identified a critical gap in the market between enterprise-level solutions and consumer tools.</p>
+                    <p>What began as a quest for more accurate dubbing solutions has evolved into a comprehensive platform offering <span class="highlight">precision dubbing, video enhancement, and voice synthesis</span> — all underpinned by our unwavering commitment to measurable quality.</p>
+                    <p>Today, Articulab stands as the premier choice for professional media producers who require precision-engineered transformations that maintain the integrity and impact of their original content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section mission-section">
+        <div class="mission-bg"></div>
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Mission & Vision</h2>
+                <p>We're driven by a commitment to excellence and measurable results in everything we do.</p>
+            </div>
+            <div class="mission-cards">
+                <div class="mission-card animated fadeIn">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To transform media content across languages and formats while maintaining the highest standards of quality, accuracy, and emotional impact. We aim to make premium media enhancement accessible to professional content creators at mid-scale investment levels.</p>
+                </div>
+                <div class="mission-card animated fadeIn delay-2">
+                    <div class="mission-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become the global standard for quality-first media enhancement, pioneering new methodologies that combine technological innovation with rigorous quality control. We envision a world where content crosses language and cultural barriers seamlessly.</p>
+                </div>
+                <div class="mission-card animated fadeIn delay-3">
+                    <div class="mission-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Our Approach</h3>
+                    <p>We apply Six Sigma methodology to every aspect of our work, ensuring statistical control of processes and minimizing defects. Our proprietary AI technology delivers measurable quality improvements that significantly outperform standard solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section team-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Leadership Team</h2>
+                <p>Meet the experts behind Articulab's quality-first approach to media enhancement.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card animated fadeIn">
+                    <div class="team-image">
+                        <img src="/api/placeholder/400/300" alt="CEO">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Tim Herbert</h3>
+                        <span class="team-position">Founder & CEO</span>
+                        <p class="team-bio">A Lean Six Sigma Professional with 15+ years of experience in quality assurance and precision engineering. Tim founded Articulab to revolutionize media enhancement through rigorous quality standards and measurable results.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card animated fadeIn delay-2">
+                    <div class="team-image">
+                        <img src="/api/placeholder/400/300" alt="Chief Content Strategist">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Betsy Herbert</h3>
+                        <span class="team-position">Chief Content Strategist</span>
+                        <p class="team-bio">With extensive experience in education and content development, Betsy brings exceptional analytical skills to Articulab. Her expertise in optimizing learning methodologies and content effectiveness drives our approach to media transformation.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section values-section">
+        <div class="values-bg"></div>
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Core Values</h2>
+                <p>These principles guide everything we do at Articulab.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card animated fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Measurable Quality</h3>
+                    <p>We believe that quality must be quantifiable. Every enhancement we provide is measured against rigorous standards with statistical validation of results.</p>
+                </div>
+                <div class="value-card animated fadeIn delay-1">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovative Solutions</h3>
+                    <p>We continuously push the boundaries of what's possible in media enhancement through our proprietary AI technology and methodical approach.</p>
+                </div>
+                <div class="value-card animated fadeIn delay-2">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Emotional Integrity</h3>
+                    <p>We're committed to preserving the emotional impact and artistic intent of the original content through all transformations and enhancements.</p>
+                </div>
+                <div class="value-card animated fadeIn delay-3">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Client Partnership</h3>
+                    <p>We view each project as a partnership, working closely with our clients to understand their unique needs and deliver tailored solutions.</p>
+                </div>
+                <div class="value-card animated fadeIn delay-4">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Reliability</h3>
+                    <p>Our Six Sigma approach ensures consistent, reliable results. We don't just aim for quality—we achieve it systematically on every project.</p>
+                </div>
+                <div class="value-card animated fadeIn delay-5">
+                    <div class="value-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Continuous Improvement</h3>
+                    <p>We're never satisfied with the status quo. We constantly refine our processes and technology to deliver ever-improving results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta">
+        <div class="cta-bg">
+            <div class="cta-grid"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience the Articulab Difference?</h2>
+                <p>Discover how our quality-first approach can transform your media content.</p>
+                <a href="contact.html" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Articulab</h3>
+                    <p>Precision-engineered media enhancement with Six Sigma quality standards. Our proprietary AI technology delivers measurable improvement in media transformation quality.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul>
+                        <li><a href="services.html#dubbing">Precision Dubbing</a></li>
+                        <li><a href="services.html#enhancement">Video Enhancement</a></li>
+                        <li><a href="services.html#voice">Voice Synthesis</a></li>
+                        <li><a href="services.html#quality">Quality Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="resources.html#metrics">Quality Metrics</a></li>
+                        <li><a href="resources.html#specs">Technical Specifications</a></li>
+                        <li><a href="resources.html#docs">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@articulab.ai">info@articulab.ai</a></li>
+                        <li><a href="contact.html#demo">Request Demo</a></li>
+                        <li><a href="contact.html#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Articulab.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle scrolling effects for header
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Add scroll animation for elements
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.value-card, .mission-card, .team-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenHeight = window.innerHeight;
+                    
+                    if (elementPosition < screenHeight * 0.9) {
+                        element.style.animation = 'fadeIn 0.8s forwards';
+                        setTimeout(() => {
+                            element.style.opacity = 1;
+                            element.style.transform = 'translateY(0)';
+                        }, 800);
+                    }
+                });
+            };
+            
+            // Initialize element positions for animation
+            const initializeElementPositions = function() {
+                const elements = document.querySelectorAll('.value-card, .mission-card, .team-card');
+                
+                elements.forEach(element => {
+                    element.style.opacity = 0;
+                    element.style.transform = 'translateY(20px)';
+                    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+            };
+            
+            initializeElementPositions();
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on page load
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const hrefValue = this.getAttribute('href');
+                    
+                    // Handle case where href is just "#" (like the logo)
+                    if (hrefValue === "#") {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                    
+                    const target = document.querySelector(hrefValue);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

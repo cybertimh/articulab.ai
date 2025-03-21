@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Articulab.ai - Precision-Engineered Media Enhancement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-dark: #00b8a9;
+            --text-light: #ccd6f6;
+            --text-white: #e6f1ff;
+            --dark: #0a192f;
+            --success: #00ca4e;
+            --warning: #ffcb1f;
+            --danger: #ff5470;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            background: rgba(10, 25, 47, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(8px);
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .logo span {
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .logo:hover span::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+        
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li:hover::before {
+            width: 100%;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.2);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--text-white);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            color: var(--primary);
+        }
+        
+        .page-header {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .header-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 40px 40px;
+            background-image: linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            z-index: 1;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+        
+        .page-subtitle {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .page-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+        
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            position: relative;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-heading {
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-heading h2 {
+            font-size: 42px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .section-heading p {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 800px;
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+        
+        .culture-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            height: 500px;
+        }
+        
+        .culture-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .culture-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 70%, rgba(10, 25, 47, 0.7));
+        }
+        
+        .culture-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .culture-title {
+            font-size: 36px;
+            color: var(--text-white);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .culture-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .culture-text {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(100, 255, 218, 0.05), transparent);
+            z-index: -1;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .value-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+        
+        .value-title {
+            font-size: 24px;
+            color: var(--text-white);
+            margin-bottom: 15px;
+        }
+        
+        .value-text {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        .perks-section {
+            background-color: var(--secondary);
+            margin-top: 100px;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .perks-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(100, 255, 218, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .perk-card {
+            background-color: rgba(10, 25, 47, 0.6);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .perk-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .perk-icon {
+            font-size: 30px;
+            color: var(--accent);
+            margin-right: 20px;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .perk-content h3 {
+            font-size: 20px;
+            color: var(--text-white);
+            margin-bottom: 10px;
+        }
+        
+        .perk-content p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        
+        .testimonial-section {
+            margin-top: 100px;
+        }
+        
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 80px;
+            color: rgba(100, 255, 218, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-light);
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: var(--accent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 24px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--text-white);
+            font-size: 18px;
+        }
+        
+        .author-info p {
+            color: var(--accent);
+            font-size: 14px;
+        }
+        
+        .openings-section {
+            margin-top: 100px;
+        }
+        
+        .opening-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 30px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: rgba(100, 255, 218, 0.1);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .job-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .job-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .job-info {
+            flex-grow: 1;
+        }
+        
+        .job-title {
+            font-size: 22px;
+            color: var(--text-white);
+            margin-bottom: 10px;
+        }
+        
+        .job-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .job-department, .job-location, .job-type {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .job-department i, .job-location i, .job-type i {
+            margin-right: 6px;
+            color: var(--accent);
+            font-size: 14px;
+        }
+        
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .job-tag {
+            padding: 5px 10px;
+            background-color: rgba(100, 255, 218, 0.1);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--accent);
+        }
+        
+        .apply-btn {
+            flex-shrink: 0;
+            margin-left: 30px;
+        }
+        
+        .application-section {
+            margin-top: 100px;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .application-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 70%, rgba(100, 255, 218, 0.05), transparent 70%);
+            z-index: 0;
+        }
+        
+        .application-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .application-title {
+            font-size: 36px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+        }
+        
+        .application-text {
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        .application-cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--text-light);
+            padding: 80px 0 40px;
+            position: relative;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            color: var(--text-white);
+            margin-bottom: 30px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 16px;
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .footer-column ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-column ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Animation Classes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animated {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+        
+        .fadeIn { animation-name: fadeIn; }
+        .scaleIn { animation-name: scaleIn; }
+        .slideInRight { animation-name: slideInRight; }
+        .slideInLeft { animation-name: slideInLeft; }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .culture-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .culture-image {
+                height: 400px;
+            }
+            
+            .page-header h1 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .section-heading h2 {
+                font-size: 36px;
+            }
+            
+            .culture-title {
+                font-size: 30px;
+            }
+            
+            .culture-text {
+                font-size: 16px;
+            }
+            
+            .value-card, .perk-card, .testimonial-card {
+                padding: 30px 25px;
+            }
+            
+            .application-section {
+                padding: 40px 30px;
+            }
+            
+            .application-title {
+                font-size: 30px;
+            }
+            
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .apply-btn {
+                margin-left: 0;
+                margin-top: 20px;
+                align-self: flex-start;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .page-header {
+                padding-top: 120px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-heading h2 {
+                font-size: 30px;
+            }
+            
+            .section-heading p {
+                font-size: 16px;
+            }
+            
+            .perks-section {
+                padding: 80px 0;
+            }
+            
+            .application-cta {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 30px;
+            }
+            
+            .value-card, .perk-card, .testimonial-card, .job-card {
+                padding: 25px 20px;
+            }
+            
+            .application-section {
+                padding: 30px 20px;
+            }
+            
+            .application-title {
+                font-size: 26px;
+            }
+            
+            .job-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Articul<span>ab</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="careers.html" class="active">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-bg">
+            <div class="header-grid"></div>
+        </div>
+        <div class="container page-header-content">
+            <span class="page-subtitle animated fadeIn">Join Our Team</span>
+            <h1 class="animated fadeIn delay-1">Shape the Future of<br>Media Enhancement</h1>
+            <p class="animated fadeIn delay-2">Join a team of innovators dedicated to pioneering precision-engineered media solutions with measurable quality at the forefront.</p>
+            <a href="#openings" class="btn btn-primary animated fadeIn delay-3">View Open Positions</a>
+        </div>
+    </section>
+
+    <section class="section culture-section">
+        <div class="container">
+            <div class="culture-grid">
+                <div class="culture-image animated fadeIn">
+                    <img src="/api/placeholder/600/500" alt="Articulab Team Culture">
+                </div>
+                <div class="culture-content animated fadeIn delay-2">
+                    <h2 class="culture-title">Our Culture</h2>
+                    <p class="culture-text">At Articulab, we foster a culture of precision, innovation, and continuous improvement. Our team is united by a shared passion for excellence and a commitment to measurable quality in everything we do.</p>
+                    <p class="culture-text">Founded by a Six Sigma certified Quality Assurance professional, our company culture integrates data-driven methodologies with creative innovation. We believe that the best solutions emerge when rigorous quality standards meet technological advancement.</p>
+                    <p class="culture-text">Our collaborative environment encourages cross-disciplinary expertise, with team members contributing across linguistics, AI technology, media production, and quality assurance. This integration of diverse skills allows us to tackle complex challenges with comprehensive solutions.</p>
+                </div>
+            </div>
+            
+            <div class="section-heading">
+                <h2>Our Values</h2>
+                <p>These core principles guide everything we do at Articulab.</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card animated fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="value-title">Measurable Quality</h3>
+                    <p class="value-text">We believe that quality must be quantifiable. Every solution we develop is measured against rigorous standards with statistical validation of results, ensuring consistent excellence.</p>
+                </div>
+                
+                <div class="value-card animated fadeIn delay-1">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovative Solutions</h3>
+                    <p class="value-text">We continuously push the boundaries of what's possible in media enhancement through creativity, technological advancement, and methodical iteration.</p>
+                </div>
+                
+                <div class="value-card animated fadeIn delay-2">
+                    <div class="value-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="value-title">Emotional Integrity</h3>
+                    <p class="value-text">We're committed to preserving the emotional impact and artistic intent of original content through all transformations and enhancements we create.</p>
+                </div>
+                
+                <div class="value-card animated fadeIn delay-3">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Collaborative Excellence</h3>
+                    <p class="value-text">We believe in the power of diverse perspectives working together. Our collaborative approach combines expertise across disciplines to achieve exceptional results.</p>
+                </div>
+                
+                <div class="value-card animated fadeIn delay-4">
+                    <div class="value-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="value-title">Continuous Improvement</h3>
+                    <p class="value-text">We're never satisfied with the status quo. We constantly refine our processes and technology to deliver ever-improving results for our clients and growth for our team.</p>
+                </div>
+                
+                <div class="value-card animated fadeIn delay-5">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Integrity & Reliability</h3>
+                    <p class="value-text">We operate with unwavering integrity in all our interactions. Our Six Sigma approach ensures consistent, reliable results that clients can trust.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="perks-section">
+        <div class="perks-bg"></div>
+        <div class="container">
+            <div class="section-heading">
+                <h2>Benefits & Perks</h2>
+                <p>We invest in our team's wellbeing, growth, and satisfaction with a comprehensive benefits package.</p>
+            </div>
+            
+            <div class="perks-grid">
+                <div class="perk-card animated fadeIn">
+                    <div class="perk-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>Professional Development</h3>
+                        <p>Dedicated budget for conferences, courses, and certifications, including Six Sigma training opportunities for all team members.</p>
+                    </div>
+                </div>
+                
+                <div class="perk-card animated fadeIn delay-1">
+                    <div class="perk-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>Comprehensive Healthcare</h3>
+                        <p>Premium medical, dental, and vision coverage for employees and dependents, with mental health support services.</p>
+                    </div>
+                </div>
+                
+                <div class="perk-card animated fadeIn delay-2">
+                    <div class="perk-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>Flexible Work Arrangements</h3>
+                        <p>Hybrid work options with flexible scheduling to accommodate different productivity styles and work-life balance.</p>
+                    </div>
+                </div>
+                
+                <div class="perk-card animated fadeIn delay-3">
+                    <div class="perk-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>Competitive Compensation</h3>
+                        <p>Market-leading salary packages, performance bonuses, and comprehensive retirement plans with company matching.</p>
+                    </div>
+                </div>
+                
+                <div class="perk-card animated fadeIn delay-4">
+                    <div class="perk-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>Generous Time Off</h3>
+                        <p>Competitive vacation policy, paid holidays, sick leave, and parental leave to ensure proper rest and family time.</p>
+                    </div>
+                </div>
+                
+                <div class="perk-card animated fadeIn delay-5">
+                    <div class="perk-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>State-of-the-Art Equipment</h3>
+                        <p>Top-tier technology and tools to support your work, with regular upgrades and personalization options.</p>
+                    </div>
+                </div>
+                
+                <div class="perk-card animated fadeIn delay-6">
+                    <div class="perk-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>Team Building & Events</h3>
+                        <p>Regular team activities, social events, and opportunities to connect with colleagues across departments.</p>
+                    </div>
+                </div>
+                
+                <div class="perk-card animated fadeIn delay-7">
+                    <div class="perk-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="perk-content">
+                        <h3>Innovation Time</h3>
+                        <p>Dedicated time for personal projects and innovation that can contribute to company growth and your professional development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Team Testimonials</h2>
+                <p>Hear directly from our team members about their experience working at Articulab.</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card animated fadeIn">
+                    <div class="testimonial-content">
+                        <p>"Working at Articulab has been transformative for my career. The emphasis on both technical excellence and measurable quality has allowed me to develop skills I wouldn't have gained elsewhere. The team's commitment to continuous improvement creates an environment where innovation thrives."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div class="author-info">
+                            <h4>Jennifer Smith</h4>
+                            <p>Senior Media Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animated fadeIn delay-2">
+                    <div class="testimonial-content">
+                        <p>"The culture at Articulab perfectly balances technical rigor with creative innovation. I've never been part of a team so dedicated to quality while also pushing the boundaries of what's possible in media enhancement. The Six Sigma approach gives us a framework for excellence without limiting our creativity."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RL</div>
+                        <div class="author-info">
+                            <h4>Robert Lee</h4>
+                            <p>AI Research Specialist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animated fadeIn delay-3">
+                    <div class="testimonial-content">
+                        <p>"Joining Articulab was one of the best career decisions I've made. The collaborative environment fosters growth, while the focus on measurable quality gives us clear objectives. I've grown not just as a linguist but as a quality-focused professional who can quantify and validate improvements."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MP</div>
+                        <div class="author-info">
+                            <h4>Maria Patel</h4>
+                            <p>Linguistic Quality Lead</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="openings" class="openings-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Current Openings</h2>
+                <p>Join our team and help shape the future of media enhancement with precision-engineered solutions.</p>
+            </div>
+            
+            <div class="opening-filters">
+                <button class="filter-btn active">All Positions</button>
+                <button class="filter-btn">Engineering</button>
+                <button class="filter-btn">AI Research</button>
+                <button class="filter-btn">Linguistics</button>
+                <button class="filter-btn">Quality Assurance</button>
+                <button class="filter-btn">Operations</button>
+            </div>
+            
+            <div class="job-list">
+                <div class="job-card animated fadeIn">
+                    <div class="job-info">
+                        <h3 class="job-title">Senior AI Engineer</h3>
+                        <div class="job-meta">
+                            <div class="job-department">
+                                <i class="fas fa-briefcase"></i>
+                                <span>AI Research</span>
+                            </div>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Remote / San Francisco</span>
+                            </div>
+                            <div class="job-type">
+                                <i class="fas fa-clock"></i>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Machine Learning</span>
+                            <span class="job-tag">NLP</span>
+                            <span class="job-tag">Speech Synthesis</span>
+                            <span class="job-tag">PyTorch</span>
+                        </div>
+                    </div>
+                    <a href="job-detail.html" class="btn apply-btn">View & Apply</a>
+                </div>
+                
+                <div class="job-card animated fadeIn delay-1">
+                    <div class="job-info">
+                        <h3 class="job-title">Quality Assurance Specialist</h3>
+                        <div class="job-meta">
+                            <div class="job-department">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Quality Assurance</span>
+                            </div>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>San Francisco</span>
+                            </div>
+                            <div class="job-type">
+                                <i class="fas fa-clock"></i>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Six Sigma</span>
+                            <span class="job-tag">Media Testing</span>
+                            <span class="job-tag">Quality Metrics</span>
+                            <span class="job-tag">Automation</span>
+                        </div>
+                    </div>
+                    <a href="job-detail.html" class="btn apply-btn">View & Apply</a>
+                </div>
+                
+                <div class="job-card animated fadeIn delay-2">
+                    <div class="job-info">
+                        <h3 class="job-title">Linguistics Specialist</h3>
+                        <div class="job-meta">
+                            <div class="job-department">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Linguistics</span>
+                            </div>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Remote</span>
+                            </div>
+                            <div class="job-type">
+                                <i class="fas fa-clock"></i>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Multilingual</span>
+                            <span class="job-tag">Phonetics</span>
+                            <span class="job-tag">Translation</span>
+                            <span class="job-tag">Localization</span>
+                        </div>
+                    </div>
+                    <a href="job-detail.html" class="btn apply-btn">View & Apply</a>
+                </div>
+                
+                <div class="job-card animated fadeIn delay-3">
+                    <div class="job-info">
+                        <h3 class="job-title">Media Enhancement Engineer</h3>
+                        <div class="job-meta">
+                            <div class="job-department">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Engineering</span>
+                            </div>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>San Francisco / Remote</span>
+                            </div>
+                            <div class="job-type">
+                                <i class="fas fa-clock"></i>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Video Processing</span>
+                            <span class="job-tag">Computer Vision</span>
+                            <span class="job-tag">C++</span>
+                            <span class="job-tag">CUDA</span>
+                        </div>
+                    </div>
+                    <a href="job-detail.html" class="btn apply-btn">View & Apply</a>
+                </div>
+                
+                <div class="job-card animated fadeIn delay-4">
+                    <div class="job-info">
+                        <h3 class="job-title">Project Manager</h3>
+                        <div class="job-meta">
+                            <div class="job-department">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Operations</span>
+                            </div>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>San Francisco</span>
+                            </div>
+                            <div class="job-type">
+                                <i class="fas fa-clock"></i>
+                                <span>Full-time</span>
+                            </div>
+                        </div>
+                        <div class="job-tags">
+                            <span class="job-tag">Project Management</span>
+                            <span class="job-tag">Six Sigma</span>
+                            <span class="job-tag">Client Relations</span>
+                            <span class="job-tag">Media Production</span>
+                        </div>
+                    </div>
+                    <a href="job-detail.html" class="btn apply-btn">View & Apply</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="application-section">
+        <div class="application-bg"></div>
+        <div class="application-content">
+            <h2 class="application-title">Don't See the Right Fit?</h2>
+            <p class="application-text">We're always looking for exceptional talent to join our team. Even if you don't see a position that matches your skills, we'd love to hear from you. Submit your resume for future opportunities or connect with our team to learn more about Articulab.</p>
+            <div class="application-cta">
+                <a href="contact.html" class="btn btn-primary">Submit General Application</a>
+                <a href="contact.html" class="btn">Contact Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Articulab</h3>
+                    <p>Precision-engineered media enhancement with Six Sigma quality standards. Our proprietary AI technology delivers measurable improvement in media transformation quality.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul>
+                        <li><a href="services.html#dubbing">Precision Dubbing</a></li>
+                        <li><a href="services.html#enhancement">Video Enhancement</a></li>
+                        <li><a href="services.html#voice">Voice Synthesis</a></li>
+                        <li><a href="services.html#quality">Quality Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="resources.html#metrics">Quality Metrics</a></li>
+                        <li><a href="resources.html#specs">Technical Specifications</a></li>
+                        <li><a href="resources.html#docs">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@articulab.ai">info@articulab.ai</a></li>
+                        <li><a href="contact.html#demo">Request Demo</a></li>
+                        <li><a href="contact.html#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Articulab.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle scrolling effects for header
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Add animation on scroll for elements
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.value-card, .perk-card, .testimonial-card, .job-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenHeight = window.innerHeight;
+                    
+                    if (elementPosition < screenHeight * 0.9) {
+                        element.style.animation = 'fadeIn 0.8s forwards';
+                        setTimeout(() => {
+                            element.style.opacity = 1;
+                            element.style.transform = 'translateY(0)';
+                        }, 800);
+                    }
+                });
+            };
+            
+            // Initialize element positions for animation
+            const initializeElementPositions = function() {
+                const elements = document.querySelectorAll('.value-card, .perk-card, .testimonial-card, .job-card');
+                
+                elements.forEach(element => {
+                    element.style.opacity = 0;
+                    element.style.transform = 'translateY(20px)';
+                    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+            };
+            
+            initializeElementPositions();
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on page load
+            
+            // Job filters functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter functionality would be implemented here in a real application
+                    // For this example, we'll just show all jobs
+                });
+            });
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const hrefValue = this.getAttribute('href');
+                    
+                    // Handle case where href is just "#" (like the logo)
+                    if (hrefValue === "#") {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                    
+                    const target = document.querySelector(hrefValue);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

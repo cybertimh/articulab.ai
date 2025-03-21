@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Articulab.ai - Precision-Engineered Media Enhancement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-dark: #00b8a9;
+            --text-light: #ccd6f6;
+            --text-white: #e6f1ff;
+            --dark: #0a192f;
+            --success: #00ca4e;
+            --warning: #ffcb1f;
+            --danger: #ff5470;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            background: rgba(10, 25, 47, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(8px);
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .logo span {
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .logo:hover span::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+        
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li:hover::before {
+            width: 100%;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .page-header {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .header-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 40px 40px;
+            background-image: linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            z-index: 1;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+        
+        .page-subtitle {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .page-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+        
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            position: relative;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+        
+        .section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .terms-container {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            margin-bottom: 60px;
+        }
+        
+        .terms-content h2 {
+            font-size: 28px;
+            color: var(--text-white);
+            margin: 40px 0 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+        }
+        
+        .terms-content h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            bottom: -1px;
+            left: 0;
+        }
+        
+        .terms-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .terms-content h3 {
+            font-size: 22px;
+            color: var(--text-white);
+            margin: 30px 0 15px;
+        }
+        
+        .terms-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .terms-content ul, .terms-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .terms-content li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        .terms-content a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px dashed var(--accent);
+        }
+        
+        .terms-content a:hover {
+            border-bottom-style: solid;
+        }
+        
+        .terms-meta {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .terms-meta p {
+            margin-bottom: 10px;
+        }
+        
+        .toc {
+            background-color: rgba(10, 25, 47, 0.5);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .toc-title {
+            font-size: 20px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .toc-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .toc-list a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: none;
+        }
+        
+        .toc-list a:hover {
+            color: var(--accent);
+            border-bottom: none;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--text-light);
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            color: var(--text-white);
+            margin-bottom: 30px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 16px;
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .footer-column ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-column ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .page-header h1 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .terms-container {
+                padding: 40px;
+            }
+            
+            .terms-content h2 {
+                font-size: 24px;
+            }
+            
+            .terms-content h3 {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .page-header {
+                padding-top: 120px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 30px;
+            }
+            
+            .terms-container {
+                padding: 30px 20px;
+            }
+            
+            .toc {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Articul<span>ab</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-bg">
+            <div class="header-grid"></div>
+        </div>
+        <div class="container page-header-content">
+            <span class="page-subtitle">Legal Information</span>
+            <h1>Terms of Service</h1>
+            <p>This document outlines the terms and conditions governing your use of Articulab's website and services.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="terms-container">
+                <div class="terms-content">
+                    <div class="toc">
+                        <h3 class="toc-title">Table of Contents</h3>
+                        <ul class="toc-list">
+                            <li><a href="#agreement">Agreement to Terms</a></li>
+                            <li><a href="#definitions">Definitions</a></li>
+                            <li><a href="#services">Services Description</a></li>
+                            <li><a href="#accounts">User Accounts</a></li>
+                            <li><a href="#payment">Payment Terms</a></li>
+                            <li><a href="#content">Client Content</a></li>
+                            <li><a href="#ip">Intellectual Property</a></li>
+                            <li><a href="#confidentiality">Confidentiality</a></li>
+                            <li><a href="#quality">Quality Assurance</a></li>
+                            <li><a href="#warranties">Warranties and Disclaimers</a></li>
+                            <li><a href="#limitation">Limitation of Liability</a></li>
+                            <li><a href="#indemnification">Indemnification</a></li>
+                            <li><a href="#termination">Termination</a></li>
+                            <li><a href="#governing-law">Governing Law</a></li>
+                            <li><a href="#dispute">Dispute Resolution</a></li>
+                            <li><a href="#modifications">Modifications to Terms</a></li>
+                            <li><a href="#contact-us">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <h2 id="agreement">1. Agreement to Terms</h2>
+                    <p>Welcome to Articulab. These Terms of Service ("Terms") govern your access to and use of the website located at <a href="https://www.articulab.ai">www.articulab.ai</a> ("Website") and the media enhancement services offered by Articulab ("Services").</p>
+                    <p>By accessing or using our Website or Services, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you must not access or use our Website or Services.</p>
+                    <p>You represent and warrant that you have the legal capacity to enter into these Terms. If you are using the Services on behalf of a company, organization, or other entity, you represent and warrant that you have the authority to bind that entity to these Terms, in which case "you" will refer to that entity.</p>
+
+                    <h2 id="definitions">2. Definitions</h2>
+                    <p>Throughout these Terms, the following terms shall have the meanings defined below:</p>
+                    <ul>
+                        <li><strong>"Articulab,"</strong> "we," "our," or "us" refers to Articulab, the provider of the Services.</li>
+                        <li><strong>"Client,"</strong> "you," or "your" refers to any individual or entity that accesses or uses our Website or Services.</li>
+                        <li><strong>"Client Content"</strong> refers to any content, including but not limited to video, audio, text, data, and images, that you submit to us for processing through our Services.</li>
+                        <li><strong>"Deliverables"</strong> refers to the enhanced, transformed, or otherwise processed content that we provide to you as a result of our Services.</li>
+                        <li><strong>"Services"</strong> refers to the media enhancement services provided by Articulab, including but not limited to precision dubbing, video enhancement, and voice synthesis.</li>
+                    </ul>
+
+                    <h2 id="services">3. Services Description</h2>
+                    <p>Articulab offers precision-engineered media enhancement services, including:</p>
+                    <ul>
+                        <li><strong>Precision Dubbing:</strong> Phoneme-level synchronized audio dubbing services across multiple languages.</li>
+                        <li><strong>Video Enhancement:</strong> Video quality improvement services including upscaling, denoising, and other visual enhancements.</li>
+                        <li><strong>Voice Synthesis:</strong> Creation of synthetic voices with emotional preservation capabilities.</li>
+                        <li><strong>Quality Assessment:</strong> Analysis and measurement of media quality with statistical validation.</li>
+                    </ul>
+                    <p>We reserve the right to modify, suspend, or discontinue any aspect of our Services at any time, with or without notice. We may also impose limits on certain features or restrict access to parts or all of the Services without liability.</p>
+
+                    <h2 id="accounts">4. User Accounts</h2>
+                    <p>To access certain features of our Services, you may be required to create an account. When you create an account, you agree to:</p>
+                    <ul>
+                        <li>Provide accurate, current, and complete information</li>
+                        <li>Maintain and promptly update your account information</li>
+                        <li>Maintain the security of your account credentials</li>
+                        <li>Promptly notify us of any unauthorized access to or use of your account</li>
+                        <li>Take responsibility for all activities that occur under your account</li>
+                    </ul>
+                    <p>We reserve the right to suspend or terminate your account at our discretion if we believe you have violated these Terms or if we determine that your account activity presents a risk to Articulab or other users.</p>
+
+                    <h2 id="payment">5. Payment Terms</h2>
+                    <p>The fees for our Services will be specified in a separate agreement or quote provided to you. Unless otherwise stated:</p>
+                    <ul>
+                        <li>All fees are quoted in U.S. dollars and are non-refundable except as expressly provided in these Terms</li>
+                        <li>Fees do not include any taxes, which are your responsibility</li>
+                        <li>Payment terms are net 30 days from the invoice date unless otherwise specified</li>
+                        <li>Late payments may incur interest charges at the rate of 1.5% per month or the maximum rate permitted by law, whichever is less</li>
+                        <li>We may suspend or terminate your access to the Services if payments are not received when due</li>
+                    </ul>
+                    <p>We reserve the right to change our fees at any time, but any changes will only apply to future services and will not affect services already contracted for.</p>
+
+                    <h2 id="content">6. Client Content</h2>
+                    <h3>6.1 Ownership and Licenses</h3>
+                    <p>You retain all ownership rights to your Client Content. By submitting Client Content to us, you grant Articulab a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, and process your Client Content solely for the purpose of providing the Services to you. This license expires upon the completion of the Services and delivery of the Deliverables, except as needed for backup and record-keeping purposes.</p>
+                    
+                    <h3>6.2 Content Restrictions</h3>
+                    <p>You represent and warrant that your Client Content:</p>
+                    <ul>
+                        <li>Does not infringe on the intellectual property rights of any third party</li>
+                        <li>Does not violate any applicable laws or regulations</li>
+                        <li>Does not contain any defamatory, obscene, harmful, threatening, offensive, or otherwise objectionable material</li>
+                        <li>Does not contain malware, viruses, or other harmful code</li>
+                    </ul>
+                    <p>We reserve the right to refuse to process any Client Content that we believe violates these restrictions or otherwise violates these Terms.</p>
+                    
+                    <h3>6.3 Content Storage and Deletion</h3>
+                    <p>We will store your Client Content and Deliverables for a reasonable period as specified in our Privacy Policy or a separate agreement. After that period, we may delete your Client Content and Deliverables without notice to you. You are responsible for maintaining your own backup copies of your Client Content.</p>
+
+                    <h2 id="ip">7. Intellectual Property</h2>
+                    <h3>7.1 Articulab Intellectual Property</h3>
+                    <p>All intellectual property rights in and to the Website, Services, and Articulab technology, including but not limited to copyright, trademark, trade secret, and patent rights, are owned by Articulab or its licensors. Nothing in these Terms grants you any right, title, or interest in or to Articulab's intellectual property except for the limited license expressly set forth in these Terms.</p>
+                    
+                    <h3>7.2 Deliverables</h3>
+                    <p>Upon full payment of all applicable fees, Articulab grants you a worldwide, non-exclusive, perpetual license to use, reproduce, distribute, display, and perform the Deliverables for your business purposes. This license does not include the right to use Articulab's proprietary technology or methods used to create the Deliverables.</p>
+                    
+                    <h3>7.3 Feedback</h3>
+                    <p>If you provide any suggestions, ideas, or feedback regarding the Website or Services ("Feedback"), Articulab will have the right to use such Feedback without restriction and without any compensation to you. You hereby assign to Articulab all rights, title, and interest in and to the Feedback.</p>
+
+                    <h2 id="confidentiality">8. Confidentiality</h2>
+                    <p>Each party may have access to confidential information of the other party, including but not limited to business plans, technical data, marketing strategies, and Client Content ("Confidential Information"). Each party agrees to:</p>
+                    <ul>
+                        <li>Maintain the confidentiality of the other party's Confidential Information</li>
+                        <li>Use the Confidential Information only for the purpose of performing its obligations under these Terms</li>
+                        <li>Protect the Confidential Information with at least the same degree of care it uses to protect its own Confidential Information, but no less than reasonable care</li>
+                        <li>Not disclose the Confidential Information to any third party without the prior written consent of the other party</li>
+                    </ul>
+                    <p>These confidentiality obligations do not apply to information that: (a) is or becomes publicly known through no fault of the receiving party; (b) is rightfully known by the receiving party prior to receipt from the disclosing party; (c) is rightfully obtained by the receiving party from a third party without restriction; or (d) is independently developed by the receiving party without use of the disclosing party's Confidential Information.</p>
+
+                    <h2 id="quality">9. Quality Assurance</h2>
+                    <p>Articulab applies Six Sigma quality methodology to our Services. While we strive to deliver high-quality Deliverables, we cannot guarantee that the Deliverables will be completely free from defects or errors.</p>
+                    <p>If you believe that the Deliverables do not conform to the agreed-upon specifications, you must notify us within ten (10) business days after delivery. Upon receiving such notice, we will evaluate the alleged non-conformity and, if we determine that the Deliverables do not conform to the specifications, we will, at our option, either correct the non-conformity or refund the fees paid for the non-conforming portion of the Services.</p>
+                    <p>The remedy described above is your sole and exclusive remedy, and our sole obligation, for any non-conformity in the Deliverables.</p>
+
+                    <h2 id="warranties">10. Warranties and Disclaimers</h2>
+                    <h3>10.1 Articulab Warranties</h3>
+                    <p>Articulab warrants that:</p>
+                    <ul>
+                        <li>We will perform the Services in a professional and workmanlike manner</li>
+                        <li>We will use commercially reasonable efforts to ensure that the Deliverables conform to the agreed-upon specifications</li>
+                        <li>We have the right and authority to enter into these Terms and grant the licenses provided herein</li>
+                    </ul>
+                    
+                    <h3>10.2 Client Warranties</h3>
+                    <p>You warrant that:</p>
+                    <ul>
+                        <li>You have the right and authority to enter into these Terms and grant the licenses provided herein</li>
+                        <li>Your Client Content does not infringe on the intellectual property rights of any third party</li>
+                        <li>Your Client Content and use of our Services will comply with all applicable laws and regulations</li>
+                    </ul>
+                    
+                    <h3>10.3 Disclaimer</h3>
+                    <p>EXCEPT AS EXPRESSLY PROVIDED IN THESE TERMS, THE WEBSITE AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. ARTICULAB DOES NOT WARRANT THAT THE WEBSITE OR SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, OR COMPLETELY SECURE.</p>
+
+                    <h2 id="limitation">11. Limitation of Liability</h2>
+                    <p>IN NO EVENT WILL ARTICULAB BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOST PROFITS, LOSS OF USE, LOSS OF DATA, OR BUSINESS INTERRUPTION, WHETHER IN CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, EVEN IF ARTICULAB HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+                    <p>IN NO EVENT WILL ARTICULAB'S TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATING TO THESE TERMS OR YOUR USE OF THE WEBSITE OR SERVICES EXCEED THE AMOUNT PAID BY YOU TO ARTICULAB FOR THE SERVICES GIVING RISE TO THE CLAIM DURING THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE LIABILITY.</p>
+                    <p>SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, SO THE ABOVE LIMITATION MAY NOT APPLY TO YOU.</p>
+
+                    <h2 id="indemnification">12. Indemnification</h2>
+                    <p>You agree to indemnify, defend, and hold harmless Articulab and its officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising from or relating to:</p>
+                    <ul>
+                        <li>Your violation of these Terms</li>
+                        <li>Your Client Content</li>
+                        <li>Your use of the Website or Services</li>
+                        <li>Your violation of any rights of another person or entity</li>
+                        <li>Your violation of any applicable laws or regulations</li>
+                    </ul>
+                    <p>We reserve the right, at our own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, in which event you will cooperate with us in asserting any available defenses.</p>
+
+                    <h2 id="termination">13. Termination</h2>
+                    <p>Either party may terminate these Terms upon written notice if the other party materially breaches these Terms and fails to cure such breach within thirty (30) days after receiving written notice of the breach.</p>
+                    <p>We may also terminate or suspend your access to the Website or Services immediately without notice if:</p>
+                    <ul>
+                        <li>You violate these Terms</li>
+                        <li>You fail to pay any fees when due</li>
+                        <li>We believe that your use of the Website or Services poses a security risk or could harm Articulab or other users</li>
+                    </ul>
+                    <p>Upon termination, you will pay all fees accrued as of the effective date of termination, and all licenses granted under these Terms will terminate except as expressly provided otherwise.</p>
+
+                    <h2 id="governing-law">14. Governing Law</h2>
+                    <p>These Terms and any disputes arising out of or related to these Terms or the Website or Services will be governed by the laws of the State of Nebraska, without regard to its conflict of laws principles. The United Nations Convention on Contracts for the International Sale of Goods does not apply to these Terms.</p>
+
+                    <h2 id="dispute">15. Dispute Resolution</h2>
+                    <p>Any dispute, controversy, or claim arising out of or relating to these Terms, including the breach, termination, or validity thereof, shall first be addressed through good faith negotiations between the parties. If the dispute cannot be resolved through negotiation, it shall be resolved by binding arbitration in Omaha, Nebraska, in accordance with the Commercial Arbitration Rules of the American Arbitration Association then in effect.</p>
+                    <p>The arbitration will be conducted by a single arbitrator mutually agreed upon by the parties or, if the parties cannot agree, by an arbitrator selected by the American Arbitration Association. The arbitrator's decision will be final and binding and may be entered as a judgment in any court of competent jurisdiction.</p>
+                    <p>Each party will be responsible for its own costs and expenses related to the arbitration, including attorneys' fees, and will share equally in the arbitrator's fees and expenses.</p>
+                    <p>Notwithstanding the foregoing, either party may seek injunctive or other equitable relief from a court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation, or violation of that party's intellectual property rights.</p>
+
+                    <h2 id="modifications">16. Modifications to Terms</h2>
+                    <p>We reserve the right to modify these Terms at any time. If we make material changes to these Terms, we will notify you by email or by posting a notice on our Website. Your continued use of the Website or Services after the effective date of the modified Terms constitutes your acceptance of the modified Terms.</p>
+                    <p>It is your responsibility to review these Terms periodically to stay informed of any updates. The most current version of these Terms will always be available on our Website.</p>
+
+                    <h2 id="contact-us">17. Contact Us</h2>
+                    <p>If you have any questions about these Terms, please contact us at:</p>
+                    <p>Email: <a href="mailto:legal@articulab.ai">legal@articulab.ai</a><br>
+                    Mail: Articulab Legal Department<br>
+                    123 Tech Center Drive, Suite 500<br>
+                    San Francisco, CA 94103</p>
+
+                    <div class="terms-meta">
+                        <p>Last Updated: March 1, 2025</p>
+                        <p>Effective Date: March 1, 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Articulab</h3>
+                    <p>Precision-engineered media enhancement with Six Sigma quality standards. Our proprietary AI technology delivers measurable improvement in media transformation quality.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul>
+                        <li><a href="services.html#dubbing">Precision Dubbing</a></li>
+                        <li><a href="services.html#enhancement">Video Enhancement</a></li>
+                        <li><a href="services.html#voice">Voice Synthesis</a></li>
+                        <li><a href="services.html#quality">Quality Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="resources.html#metrics">Quality Metrics</a></li>
+                        <li><a href="resources.html#specs">Technical Specifications</a></li>
+                        <li><a href="resources.html#docs">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Articulab.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle scrolling effects for header
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                // Header scroll effect
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Back to top button visibility
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Back to top functionality
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

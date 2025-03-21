@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Articulab.ai - Precision-Engineered Media Enhancement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-dark: #00b8a9;
+            --text-light: #ccd6f6;
+            --text-white: #e6f1ff;
+            --dark: #0a192f;
+            --success: #00ca4e;
+            --warning: #ffcb1f;
+            --danger: #ff5470;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            background: rgba(10, 25, 47, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(8px);
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .logo span {
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .logo:hover span::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+        
+        nav ul li::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li:hover::before {
+            width: 100%;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.2);
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--text-white);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            color: var(--primary);
+        }
+        
+        .page-header {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .header-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 40px 40px;
+            background-image: linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            z-index: 1;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+        
+        .page-subtitle {
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .page-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+        
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            position: relative;
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            max-width: 600px;
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-heading {
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-heading h2 {
+            font-size: 42px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .section-heading p {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 800px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+        
+        .blog-main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        
+        .featured-post {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+        
+        .featured-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .featured-image {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .featured-post:hover .featured-image img {
+            transform: scale(1.05);
+        }
+        
+        .featured-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            z-index: 2;
+        }
+        
+        .featured-content {
+            padding: 40px;
+        }
+        
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .featured-date {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        
+        .featured-date i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        .featured-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .featured-author i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        .featured-title {
+            font-size: 32px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .featured-excerpt {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .post-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 0;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .post-image {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .post-card:hover .post-image img {
+            transform: scale(1.05);
+        }
+        
+        .post-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 4px;
+            z-index: 2;
+        }
+        
+        .post-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .post-date {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .post-date i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        .post-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-author i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        .post-title {
+            font-size: 24px;
+            color: var(--text-white);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .post-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .blog-sidebar {
+            position: relative;
+        }
+        
+        .sidebar-widget {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .widget-title {
+            font-size: 22px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+        }
+        
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: -1px;
+            left: 0;
+        }
+        
+        .search-form {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .search-input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            background-color: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 4px 0 0 4px;
+            color: var(--text-white);
+            font-size: 15px;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .search-btn {
+            padding: 12px 20px;
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background-color: var(--accent-dark);
+        }
+        
+        .categories-list {
+            list-style: none;
+        }
+        
+        .categories-list li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            padding-bottom: 15px;
+        }
+        
+        .categories-list li:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .categories-list a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        
+        .categories-list a:hover {
+            color: var(--accent);
+        }
+        
+        .categories-list .count {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .categories-list a:hover .count {
+            background-color: rgba(100, 255, 218, 0.2);
+        }
+        
+        .recent-post {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            padding-bottom: 20px;
+        }
+        
+        .recent-post:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .recent-post-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .recent-post-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .recent-post-content {
+            flex-grow: 1;
+        }
+        
+        .recent-post-title {
+            font-size: 16px;
+            color: var(--text-white);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .recent-post-title a {
+            color: var(--text-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .recent-post-title a:hover {
+            color: var(--accent);
+        }
+        
+        .recent-post-date {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+        
+        .recent-post-date i {
+            margin-right: 5px;
+            color: var(--accent);
+            font-size: 11px;
+        }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag-link {
+            padding: 8px 15px;
+            background-color: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 4px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .tag-link:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .newsletter-form {
+            margin-top: 20px;
+        }
+        
+        .newsletter-input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 4px;
+            color: var(--text-white);
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .newsletter-btn {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: var(--accent-dark);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+        
+        .pagination-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary);
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 5px;
+            border-radius: 4px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-link:hover, .pagination-link.active {
+            background-color: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+        
+        .pagination-link.prev, .pagination-link.next {
+            width: auto;
+            padding: 0 15px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--text-light);
+            padding: 80px 0 40px;
+            position: relative;
+            margin-top: 100px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            color: var(--text-white);
+            margin-bottom: 30px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 16px;
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .footer-column ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-column ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Animation Classes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animated {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+        
+        .fadeIn { animation-name: fadeIn; }
+        .scaleIn { animation-name: scaleIn; }
+        .slideInRight { animation-name: slideInRight; }
+        .slideInLeft { animation-name: slideInLeft; }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 48px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .page-header h1 {
+                font-size: 40px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .section-heading h2 {
+                font-size: 36px;
+            }
+            
+            .featured-title {
+                font-size: 28px;
+            }
+            
+            .post-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .post-image {
+                height: 240px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .page-header {
+                padding-top: 120px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-heading h2 {
+                font-size: 30px;
+            }
+            
+            .section-heading p {
+                font-size: 16px;
+            }
+            
+            .featured-content {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 30px;
+            }
+            
+            .featured-content, .post-content {
+                padding: 25px 20px;
+            }
+            
+            .featured-image {
+                height: 300px;
+            }
+            
+            .pagination-link.prev, .pagination-link.next {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Articul<span>ab</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="page-header-bg">
+            <div class="header-grid"></div>
+        </div>
+        <div class="container page-header-content">
+            <span class="page-subtitle animated fadeIn">Industry Insights</span>
+            <h1 class="animated fadeIn delay-1">The Articulab Blog</h1>
+            <p class="animated fadeIn delay-2">In-depth articles on media enhancement technology, quality methodologies, and industry trends from our team of experts.</p>
+        </div>
+    </section>
+
+    <section class="section blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <div class="blog-main">
+                    <article class="featured-post animated fadeIn">
+                        <div class="featured-image">
+                            <span class="featured-tag">Featured</span>
+                            <img src="/api/placeholder/800/400" alt="The Future of Multilingual Content">
+                        </div>
+                        <div class="featured-content">
+                            <div class="featured-meta">
+                                <div class="featured-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>March 15, 2025</span>
+                                </div>
+                                <div class="featured-author">
+                                    <i class="far fa-user"></i>
+                                    <span>Alex Reynolds</span>
+                                </div>
+                            </div>
+                            <h2 class="featured-title">The Future of Multilingual Content: Quality-Driven Approaches to Global Media</h2>
+                            <p class="featured-excerpt">As content creators expand to global markets, the quality of multilingual transformations becomes increasingly critical. This article explores how Six Sigma methodologies are revolutionizing the approach to multilingual media, with measurable improvements in audience engagement and content effectiveness.</p>
+                            <a href="blog-post.html" class="btn">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card animated fadeIn delay-2">
+                        <div class="post-image">
+                            <span class="post-tag">Technology</span>
+                            <img src="/api/placeholder/400/300" alt="Phoneme-Level Precision">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <div class="post-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>March 8, 2025</span>
+                                </div>
+                                <div class="post-author">
+                                    <i class="far fa-user"></i>
+                                    <span>Dr. Maya Chen</span>
+                                </div>
+                            </div>
+                            <h3 class="post-title">Phoneme-Level Precision: Why Microseconds Matter in Dubbing Quality</h3>
+                            <p class="post-excerpt">Achieving natural-looking dubbed content requires precision at the phoneme level. This technical deep dive explores how millisecond-level synchronization significantly impacts viewer perception and engagement metrics.</p>
+                            <a href="blog-post.html" class="btn">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card animated fadeIn delay-3">
+                        <div class="post-image">
+                            <span class="post-tag">Quality Methodology</span>
+                            <img src="/api/placeholder/400/300" alt="Six Sigma Methodology">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <div class="post-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>March 1, 2025</span>
+                                </div>
+                                <div class="post-author">
+                                    <i class="far fa-user"></i>
+                                    <span>James Wilson</span>
+                                </div>
+                            </div>
+                            <h3 class="post-title">Implementing Six Sigma in Creative Processes: Data-Driven Quality for Media Enhancement</h3>
+                            <p class="post-excerpt">Can Six Sigma methodology, traditionally used in manufacturing, be effectively applied to creative media processes? This article presents case studies demonstrating measurable quality improvements through statistical process control in media enhancement.</p>
+                            <a href="blog-post.html" class="btn">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card animated fadeIn delay-4">
+                        <div class="post-image">
+                            <span class="post-tag">Industry Trends</span>
+                            <img src="/api/placeholder/400/300" alt="Educational Content">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <div class="post-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>February 22, 2025</span>
+                                </div>
+                                <div class="post-author">
+                                    <i class="far fa-user"></i>
+                                    <span>Sarah Johnson</span>
+                                </div>
+                            </div>
+                            <h3 class="post-title">The Impact of Precision Dubbing on Educational Content Effectiveness</h3>
+                            <p class="post-excerpt">Educational content requires exceptional accuracy when translated across languages. This article examines how precision-engineered dubbing techniques significantly improve learning outcomes and student engagement in multilingual educational platforms.</p>
+                            <a href="blog-post.html" class="btn">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card animated fadeIn delay-5">
+                        <div class="post-image">
+                            <span class="post-tag">Technology</span>
+                            <img src="/api/placeholder/400/300" alt="Video Enhancement">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <div class="post-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>February 15, 2025</span>
+                                </div>
+                                <div class="post-author">
+                                    <i class="far fa-user"></i>
+                                    <span>Michael Chen</span>
+                                </div>
+                            </div>
+                            <h3 class="post-title">Beyond Resolution: Quality Metrics That Matter in Video Enhancement</h3>
+                            <p class="post-excerpt">Resolution is just one aspect of video quality. This technical article explores comprehensive quality metrics including perceptual quality, artifact reduction, and color fidelity, with objective measurement techniques for each dimension.</p>
+                            <a href="blog-post.html" class="btn">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <div class="pagination">
+                        <a href="#" class="pagination-link prev">Previous</a>
+                        <a href="#" class="pagination-link active">1</a>
+                        <a href="#" class="pagination-link">2</a>
+                        <a href="#" class="pagination-link">3</a>
+                        <a href="#" class="pagination-link">4</a>
+                        <a href="#" class="pagination-link next">Next</a>
+                    </div>
+                </div>
+                
+                <div class="blog-sidebar">
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Search</h3>
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="Search articles...">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul class="categories-list">
+                            <li><a href="#">Technology <span class="count">12</span></a></li>
+                            <li><a href="#">Quality Methodology <span class="count">8</span></a></li>
+                            <li><a href="#">Industry Trends <span class="count">7</span></a></li>
+                            <li><a href="#">Case Studies <span class="count">6</span></a></li>
+                            <li><a href="#">Educational Content <span class="count">5</span></a></li>
+                            <li><a href="#">Media Enhancement <span class="count">9</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Recent Posts</h3>
+                        <div class="recent-post">
+                            <div class="recent-post-img">
+                                <img src="/api/placeholder/100/100" alt="Multilingual Content">
+                            </div>
+                            <div class="recent-post-content">
+                                <h4 class="recent-post-title">
+                                    <a href="#">The Future of Multilingual Content: Quality-Driven Approaches</a>
+                                </h4>
+                                <div class="recent-post-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>March 15, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recent-post">
+                            <div class="recent-post-img">
+                                <img src="/api/placeholder/100/100" alt="Phoneme-Level Precision">
+                            </div>
+                            <div class="recent-post-content">
+                                <h4 class="recent-post-title">
+                                    <a href="#">Phoneme-Level Precision: Why Microseconds Matter</a>
+                                </h4>
+                                <div class="recent-post-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>March 8, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recent-post">
+                            <div class="recent-post-img">
+                                <img src="/api/placeholder/100/100" alt="Six Sigma">
+                            </div>
+                            <div class="recent-post-content">
+                                <h4 class="recent-post-title">
+                                    <a href="#">Implementing Six Sigma in Creative Processes</a>
+                                </h4>
+                                <div class="recent-post-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>March 1, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Popular Tags</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag-link">Six Sigma</a>
+                            <a href="#" class="tag-link">Dubbing</a>
+                            <a href="#" class="tag-link">Video Enhancement</a>
+                            <a href="#" class="tag-link">Voice Synthesis</a>
+                            <a href="#" class="tag-link">Quality Metrics</a>
+                            <a href="#" class="tag-link">Multilingual</a>
+                            <a href="#" class="tag-link">Technology</a>
+                            <a href="#" class="tag-link">AI</a>
+                            <a href="#" class="tag-link">Educational</a>
+                            <a href="#" class="tag-link">Industry</a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Newsletter</h3>
+                        <p>Subscribe to our newsletter for the latest insights and updates on media enhancement technology.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Articulab</h3>
+                    <p>Precision-engineered media enhancement with Six Sigma quality standards. Our proprietary AI technology delivers measurable improvement in media transformation quality.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Solutions</h3>
+                    <ul>
+                        <li><a href="services.html#dubbing">Precision Dubbing</a></li>
+                        <li><a href="services.html#enhancement">Video Enhancement</a></li>
+                        <li><a href="services.html#voice">Voice Synthesis</a></li>
+                        <li><a href="services.html#quality">Quality Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="resources.html#metrics">Quality Metrics</a></li>
+                        <li><a href="resources.html#specs">Technical Specifications</a></li>
+                        <li><a href="resources.html#docs">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@articulab.ai">info@articulab.ai</a></li>
+                        <li><a href="contact.html#demo">Request Demo</a></li>
+                        <li><a href="contact.html#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Articulab.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle scrolling effects for header
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Add animation on scroll for post cards
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.post-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenHeight = window.innerHeight;
+                    
+                    if (elementPosition < screenHeight * 0.9) {
+                        element.style.animation = 'fadeIn 0.8s forwards';
+                        setTimeout(() => {
+                            element.style.opacity = 1;
+                            element.style.transform = 'translateY(0)';
+                        }, 800);
+                    }
+                });
+            };
+            
+            // Initialize element positions for animation
+            const initializeElementPositions = function() {
+                const elements = document.querySelectorAll('.post-card');
+                
+                elements.forEach(element => {
+                    element.style.opacity = 0;
+                    element.style.transform = 'translateY(20px)';
+                    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+            };
+            
+            initializeElementPositions();
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on page load
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const hrefValue = this.getAttribute('href');
+                    
+                    // Handle case where href is just "#" (like the logo)
+                    if (hrefValue === "#") {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                    
+                    const target = document.querySelector(hrefValue);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

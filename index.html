@@ -647,10 +647,12 @@
             </div>
         </div>
         
-        <form action="#" method="post" class="email-form" id="waitlist-form">
+        <form action="https://formspree.io/f/maneegaq" method="POST" class="email-form" id="waitlist-form">
             <div class="form-message">Join our waitlist and be the first to know:</div>
             <div class="form-group">
                 <input type="email" name="email" placeholder="Your email address" required aria-label="Email Address">
+                <input type="hidden" name="_subject" value="ArticuLab.ai Waitlist Signup">
+                <input type="hidden" name="_replyto" value="%email%">
                 <button type="submit">Keep Me Updated</button>
             </div>
         </form>
@@ -731,17 +733,14 @@
             particlesContainer.appendChild(particle);
         }
         
-        // Set launch date (only once)
-        const launchDate = new Date();
-        launchDate.setDate(launchDate.getDate() + 30);
+        // Set a fixed launch date (April 21, 2025)
+        const launchDate = new Date('2025-04-21T00:00:00');
         
-        // Countdown timer functionality
         function updateCountdown() {
-            const currentDate = new Date();
-            const difference = launchDate - currentDate;
+            const now = new Date();
+            const timeLeft = launchDate - now;
             
-            // If launch date has passed, show zeros
-            if (difference <= 0) {
+            if (timeLeft <= 0) {
                 document.getElementById('days').innerText = '00';
                 document.getElementById('hours').innerText = '00';
                 document.getElementById('minutes').innerText = '00';
@@ -749,34 +748,27 @@
                 return;
             }
             
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            // Calculate time units
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
             
-            document.getElementById('days').innerText = days.toString().padStart(2, '0');
-            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+            // Update the DOM
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
         }
         
-        // Initial countdown update
+        // Initial call
         updateCountdown();
         
-        // Update countdown every second
+        // Update every second
         setInterval(updateCountdown, 1000);
         
-        // Form submission handling
-        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = this.querySelector('input[name="email"]').value;
-            
-            // Here you would typically send the data to your backend
-            // For now, let's just show a success message
-            const formGroup = this.querySelector('.form-group');
-            formGroup.innerHTML = '<div style="padding: 1.2rem; color: var(--text);">Thank you for joining our waitlist! We\'ll be in touch soon.</div>';
-        });
+        // For testing/debugging only
+        console.log("Countdown initialized with launch date:", launchDate);
     </script>
 </body>
 </html>

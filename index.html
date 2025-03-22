@@ -731,19 +731,28 @@
             particlesContainer.appendChild(particle);
         }
         
+        // Set launch date (only once)
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 30);
+        
         // Countdown timer functionality
         function updateCountdown() {
-            // Set launch date to 30 days from now
-            const launchDate = new Date();
-            launchDate.setDate(launchDate.getDate() + 30);
-            
             const currentDate = new Date();
-            const totalSeconds = Math.floor((launchDate - currentDate) / 1000);
+            const difference = launchDate - currentDate;
             
-            const days = Math.floor(totalSeconds / 86400);
-            const hours = Math.floor((totalSeconds % 86400) / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = Math.floor(totalSeconds % 60);
+            // If launch date has passed, show zeros
+            if (difference <= 0) {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                return;
+            }
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
             
             document.getElementById('days').innerText = days.toString().padStart(2, '0');
             document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
